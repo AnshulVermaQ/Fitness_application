@@ -21,7 +21,7 @@ public class UserValidationService {
                     .retrieve()
                     .bodyToMono(Boolean.class)
                     .block();
-        } catch (WebClientResponseException e) {
+        } catch (WebClientResponseException e) { log.error("Unexpected error: {}", e.getMessage()); throw new RuntimeException("Error validating user: " + userId);
             if (e.getStatusCode() == HttpStatus.NOT_FOUND)
                 throw new RuntimeException("User Not Found: " + userId);
             else if (e.getStatusCode() == HttpStatus.BAD_REQUEST)
