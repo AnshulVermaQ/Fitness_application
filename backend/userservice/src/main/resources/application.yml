@@ -2,4 +2,4 @@ spring:
   application:
     name: user-service
   config:
-    import: optional:configserver:http://localhost:8889
+    import: optional:configserver:https://secure-config-server
