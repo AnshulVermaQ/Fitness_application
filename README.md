@@ -40,7 +40,7 @@
 
 ```bash
 # Run Keycloak
-docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:21.1 start-dev
+docker run -p 8080:8080 -e KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN} -e KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_ADMIN_PASSWORD} quay.io/keycloak/keycloak:21.1 start-dev
 
 # Run RabbitMQ
 docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
