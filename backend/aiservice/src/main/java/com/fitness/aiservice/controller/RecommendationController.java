@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+@GetMapping("/user/{userId}")
+public ResponseEntity<List<Recommendation>> getUserRecommendation(@PathVariable @Valid String userId) {
 import java.util.List;
 
 @RestController
