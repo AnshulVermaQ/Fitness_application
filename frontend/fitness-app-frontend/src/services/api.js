@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:8889/api';
+const API_URL = process.env.API_URL || 'http://localhost:8889/api';
 
 const api = axios.create({
     baseURL:API_URL
@@ -8,7 +8,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
     const userId = localStorage.getItem('userId');
-    const token = localStorage.getItem('token');
+    // Consider using HttpOnly cookies instead of localStorage for tokens.
 
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
