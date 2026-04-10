@@ -13,7 +13,7 @@ const ActivityForm = ({ onActivityAdded }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await addActivity(activity);
+            if (activity.duration < 0 || activity.caloriesBurned < 0) { console.error('Invalid input'); return; } await addActivity(activity);
             onActivityAdded();
             setActivity({ type: "RUNNING", duration: '', caloriesBurned: ''});
         } catch (error) {

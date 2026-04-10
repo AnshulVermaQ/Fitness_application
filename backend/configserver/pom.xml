@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
-		<license/>
+		<license><name>Apache 2.0 License</name></license>
 	</licenses>
 	<developers>
 		<developer/>

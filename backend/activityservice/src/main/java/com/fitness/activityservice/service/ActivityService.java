@@ -32,7 +32,7 @@ public class ActivityService {
 
         boolean isValidUser = userValidationService.validateUser(request.getUserId());
         if (!isValidUser) {
-            throw new RuntimeException("Invalid User: " + request.getUserId());
+            throw new UserValidationException("Invalid User");
         }
 
         Activity activity = Activity.builder()

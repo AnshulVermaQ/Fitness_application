@@ -40,7 +40,9 @@ public class ActivityAIService {
                     .path("text");
 
             String jsonContent = textNode.asText()
-                    .replaceAll("```json\\n","")
+JsonNode candidatesNode = rootNode.path("candidates");
+if (candidatesNode.isArray() && candidatesNode.size() > 0) {
+    JsonNode textNode = candidatesNode.get(0).path("content").path("parts").get(0).path("text");
                     .replaceAll("\\n```", "")
                     .trim();
 
@@ -71,7 +73,7 @@ public class ActivityAIService {
                     .build();
             
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error processing AI response: ", e);
             return createDefaultRecommendation(activity);
         }
     }

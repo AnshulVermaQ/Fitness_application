@@ -25,7 +25,7 @@ public class UserService {
                             return Mono.error(new RuntimeException("User Not Found: " + userId));
                         else if (e.getStatusCode() == HttpStatus.BAD_REQUEST)
                             return Mono.error(new RuntimeException("Invalid Request: " + userId));
-                        return Mono.error(new RuntimeException("Unexpected error: " + e.getMessage()));
+                        return Mono.error(new RuntimeException("Unexpected error occurred during request."));
                     });
         }
 
